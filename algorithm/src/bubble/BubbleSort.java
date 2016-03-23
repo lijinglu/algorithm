@@ -15,9 +15,10 @@ public class BubbleSort {
 		for (int x : arr)
 			System.out.println(x);
 		
-		bubbleSort(arr);
-		selectSort(arr);
-		insertSort(arr);
+//		bubbleSort(arr);
+//		selectSort(arr);
+//		insertSort(arr);
+		shellSort(arr);
 	}
 	
 	public static void bubbleSort(int[] arr) {
@@ -79,5 +80,26 @@ public class BubbleSort {
 		for (int x : arr)
 			System.out.println(x);		
 	}
+	
+	public static void shellSort(int arr[]) {
+		int gap, temp;
+		
+		for (gap = arr.length / 2; gap > 0; gap /= 2) {
+			for (int i = gap; i < arr.length; i++) {
+				for (int j = i - gap; j >= 0; j-= gap) {
+					if (arr[j] > arr[j + gap]) {
+						temp = arr[j];
+						arr[j] = arr[j + gap];
+						arr[j + gap] = temp;
+					}
+				}
+			}
+		}
+		System.out.println("shell sorted: ");
+		for (int x : arr)
+			System.out.println(x);
+	}
+	
+
 	
 }
